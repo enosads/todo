@@ -1,0 +1,13 @@
+.wrapper {
+  max-width: 736px;
+  margin: -27px auto 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  html{
+    font-size: 87.5%;
+  }
+}
