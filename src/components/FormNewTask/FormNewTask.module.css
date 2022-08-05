@@ -2,6 +2,10 @@
   display: flex;
   gap: 0.5rem;
   height: 54px;
+  margin: -27px auto 0 auto;
+  max-width: 736px;
+  padding: 0 1rem;
+  box-sizing: content-box;
 }
 
 .form input {
@@ -12,6 +16,11 @@
   order: 0;
   flex-grow: 1;
   color: var(--gray-100);
+}
+
+.form input:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 1px var(--purple);
 }
 
 .form button {

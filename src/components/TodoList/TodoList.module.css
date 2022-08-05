@@ -1,0 +1,109 @@
+.todoListHeader {
+  display: flex;
+  justify-content: space-between;
+  max-width: 736px;
+  margin: 4rem auto 0 auto;
+  padding: 0 1rem;
+  box-sizing: content-box;
+}
+
+.createdTasks, .completedTasks {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.createdTasks strong, .completedTasks strong {
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.createdTasks strong {
+  color: var(--blue);
+}
+
+.completedTasks strong {
+  color: var(--purple);
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--gray-400);
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  color: var(--gray-200);
+  font-weight: 700;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  gap: 16px;
+  border-top: 1px solid #333333;
+  border-radius: 0.5rem;
+  max-width: 736px;
+  margin: 1.5rem auto 0 auto;
+  box-sizing: content-box;
+}
+
+.emptyImage {
+  width: 56px;
+  height: 56px;
+  background-image: url("../../assets/icons/clipboard.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.empty strong {
+  font-weight: 700;
+  text-align: center;
+}
+
+.empty span {
+  display: block;
+  font-weight: 400;
+}
+
+.taskList {
+  margin: 1.5rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  padding-right: 0.5rem;
+  gap: 0.75rem;
+  max-height: calc(100vh - 357px);
+  overflow-y: auto;
+}
+
+.wrapper {
+  max-width: 736px;
+  margin: 0 auto 0 auto;
+  padding: 0 1rem;
+  box-sizing: content-box;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray-400);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-200);
+}

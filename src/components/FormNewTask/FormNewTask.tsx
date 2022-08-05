@@ -1,18 +1,32 @@
 import styles from "./FormNewTask.module.css";
-import {ChangeEvent, InvalidEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 import plusIcon from "../../assets/icons/plus.svg";
 
-export function FormNewTask() {
+interface FormNewTaskProps {
+  addTask: (title: string) => void;
+}
+
+export function FormNewTask({addTask}: FormNewTaskProps) {
   const [newTaskValue, setNewTaskValue] = useState("");
+  const isNewTaskEmpty = newTaskValue.trim().length === 0;
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     setNewTaskValue(event.target.value);
   }
 
-  const isNewTaskEmpty = newTaskValue.trim().length === 0;
+  function handleNewTaskSubmit(event: FormEvent) {
+    event.preventDefault();
+    if (!isNewTaskEmpty) {
+      addTask(newTaskValue);
+      setNewTaskValue("");
+    }
+  }
 
   return (
-    <form className={styles.form}>
+    <form
+      className={styles.form}
+      onSubmit={handleNewTaskSubmit}
+    >
       <input
         name={'task'}
         type="text"
@@ -26,7 +40,7 @@ export function FormNewTask() {
         disabled={isNewTaskEmpty}
       >
         Criar
-        <img src={plusIcon} alt="Ícone de adição" />
+        <img src={plusIcon} alt="Ícone de adição"/>
       </button>
     </form>
   )

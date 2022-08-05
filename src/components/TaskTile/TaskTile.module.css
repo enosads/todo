@@ -1,0 +1,78 @@
+.taskTile {
+  display: flex;
+  border: 1px solid #333333;
+  box-shadow: 0 2px 8px 0 #0000000F;
+  align-items: flex-start;
+  padding: 1rem;
+  background-color: var(--gray-500);
+  border-radius: 0.5rem;
+  align-self: stretch;
+  gap: 12px;
+}
+
+.taskTile input {
+  width: 17px;
+  height: 17px;
+
+  border: 3px solid var(--blue);
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: all 0.2s ;
+  margin-top: calc(0.875rem * 0.2);
+}
+
+.taskTile input:focus{
+  box-shadow: none;
+}
+
+.taskTile input:not(:checked):hover {
+  border: 3px solid var(--blue-dark);
+}
+
+.taskTile input:checked:hover {
+  background-color: var(--purple);
+}
+
+.taskTile input:checked {
+  border: none;
+  background-color: var(--purple-dark);
+  background-image: url("../../assets/icons/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.taskTile label {
+  font-size: 0.875rem;
+  color: var(--gray-100);
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.buttonDelete {
+  flex-grow: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+}
+
+.buttonDelete:hover {
+  background-color: var(--gray-400);
+}
+
+.buttonDelete:hover svg {
+  fill: var(--danger);
+}
+
+.completed {
+  color: var(--gray-300) !important;
+  text-decoration-line: line-through;
+}
