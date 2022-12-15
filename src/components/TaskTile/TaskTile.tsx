@@ -34,6 +34,7 @@ export const TaskTile = ({task, toggleTask, removeTask}: TaskTileProps) => {
         {task.title}
       </label>
       <button
+        name={'remove-task'}
         className={styles.buttonDelete}
         title="Remover tarefa"
         onMouseEnter={handleMouseEnterTrashButton}
