@@ -3,35 +3,28 @@ import {Header} from "./components/Header/Header";
 import {FormNewTask} from "./components/FormNewTask/FormNewTask";
 import {TodoList} from "./components/TodoList/TodoList";
 import {TaskModel} from "./models/Task";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {v4 as uuidv4} from 'uuid';
 
 function App() {
 
-  const initialTasks: TaskModel[] = [
-    {
-      id: uuidv4(),
-      title: "Fazer o curso de React",
-      completed: false,
-    },
-    {
-      id: uuidv4(),
-      title: "Fazer o curso de React Native",
-      completed: true,
-    },
-    {
-      id: uuidv4(),
-      title: "Fazer o curso de NodeJS",
-      completed: false,
-    },
-    {
-      id: uuidv4(),
-      title: "Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.",
-      completed: true,
-    }
-  ];
+  const [tasks, setTasks] = useState<TaskModel[]>(
+    localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks') || '') : []
+  );
 
-  const [tasks, setTasks] = useState(initialTasks);
+  useEffect(() => {
+    const tasksStorage = localStorage.getItem('tasks');
+    console.log(tasksStorage);
+    if (tasksStorage) {
+      setTasks(JSON.parse(tasksStorage));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    const tasksStorage = localStorage.getItem('tasks');
+    console.log('tasksStorage', tasksStorage);
+  }, [tasks]);
 
   const toggleTask = (task: TaskModel) => {
     const newTasks = tasks.map(t => {
