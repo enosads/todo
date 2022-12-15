@@ -1,7 +1,6 @@
 import "./global.css";
 import {Header} from "./components/Header/Header";
 import {FormNewTask} from "./components/FormNewTask/FormNewTask";
-import styles from "./App.module.css";
 import {TodoList} from "./components/TodoList/TodoList";
 import {TaskModel} from "./models/Task";
 import {useState} from "react";
